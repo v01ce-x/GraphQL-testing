@@ -27,6 +27,11 @@ export class UserProfileModel implements User {
   })
   skills: string[];
 
+  @Field(() => [String], {
+    description: 'Профессиональные соцсети пользователя',
+  })
+  links: string[];
+
   @Field(() => [ExperienceModel], {
     description: 'Опыт пользовател',
   })

@@ -176,7 +176,7 @@ export type ExperienceGroupByOutputType = {
   endDate: Date
   createdAt: Date
   upadtedAt: Date
-  userId: string | null
+  userId: string
   _count: ExperienceCountAggregateOutputType | null
   _min: ExperienceMinAggregateOutputType | null
   _max: ExperienceMaxAggregateOutputType | null
@@ -209,8 +209,8 @@ export type ExperienceWhereInput = {
   endDate?: Prisma.DateTimeFilter<"Experience"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Experience"> | Date | string
   upadtedAt?: Prisma.DateTimeFilter<"Experience"> | Date | string
-  userId?: Prisma.StringNullableFilter<"Experience"> | string | null
-  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  userId?: Prisma.StringFilter<"Experience"> | string
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type ExperienceOrderByWithRelationInput = {
@@ -222,7 +222,7 @@ export type ExperienceOrderByWithRelationInput = {
   endDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   upadtedAt?: Prisma.SortOrder
-  userId?: Prisma.SortOrderInput | Prisma.SortOrder
+  userId?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -238,8 +238,8 @@ export type ExperienceWhereUniqueInput = Prisma.AtLeast<{
   endDate?: Prisma.DateTimeFilter<"Experience"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Experience"> | Date | string
   upadtedAt?: Prisma.DateTimeFilter<"Experience"> | Date | string
-  userId?: Prisma.StringNullableFilter<"Experience"> | string | null
-  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  userId?: Prisma.StringFilter<"Experience"> | string
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type ExperienceOrderByWithAggregationInput = {
@@ -251,7 +251,7 @@ export type ExperienceOrderByWithAggregationInput = {
   endDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   upadtedAt?: Prisma.SortOrder
-  userId?: Prisma.SortOrderInput | Prisma.SortOrder
+  userId?: Prisma.SortOrder
   _count?: Prisma.ExperienceCountOrderByAggregateInput
   _max?: Prisma.ExperienceMaxOrderByAggregateInput
   _min?: Prisma.ExperienceMinOrderByAggregateInput
@@ -269,7 +269,7 @@ export type ExperienceScalarWhereWithAggregatesInput = {
   endDate?: Prisma.DateTimeWithAggregatesFilter<"Experience"> | Date | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Experience"> | Date | string
   upadtedAt?: Prisma.DateTimeWithAggregatesFilter<"Experience"> | Date | string
-  userId?: Prisma.StringNullableWithAggregatesFilter<"Experience"> | string | null
+  userId?: Prisma.StringWithAggregatesFilter<"Experience"> | string
 }
 
 export type ExperienceCreateInput = {
@@ -281,7 +281,7 @@ export type ExperienceCreateInput = {
   endDate: Date | string
   createdAt?: Date | string
   upadtedAt?: Date | string
-  user?: Prisma.UserCreateNestedOneWithoutExperienceInput
+  user: Prisma.UserCreateNestedOneWithoutExperienceInput
 }
 
 export type ExperienceUncheckedCreateInput = {
@@ -293,7 +293,7 @@ export type ExperienceUncheckedCreateInput = {
   endDate: Date | string
   createdAt?: Date | string
   upadtedAt?: Date | string
-  userId?: string | null
+  userId: string
 }
 
 export type ExperienceUpdateInput = {
@@ -305,7 +305,7 @@ export type ExperienceUpdateInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneWithoutExperienceNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutExperienceNestedInput
 }
 
 export type ExperienceUncheckedUpdateInput = {
@@ -317,7 +317,7 @@ export type ExperienceUncheckedUpdateInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ExperienceCreateManyInput = {
@@ -329,7 +329,7 @@ export type ExperienceCreateManyInput = {
   endDate: Date | string
   createdAt?: Date | string
   upadtedAt?: Date | string
-  userId?: string | null
+  userId: string
 }
 
 export type ExperienceUpdateManyMutationInput = {
@@ -352,7 +352,7 @@ export type ExperienceUncheckedUpdateManyInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ExperienceListRelationFilter = {
@@ -450,10 +450,6 @@ export type ExperienceUpdatepostInput = {
   push?: string | string[]
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
 export type ExperienceCreateWithoutUserInput = {
   id?: string
   name: string
@@ -514,7 +510,7 @@ export type ExperienceScalarWhereInput = {
   endDate?: Prisma.DateTimeFilter<"Experience"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Experience"> | Date | string
   upadtedAt?: Prisma.DateTimeFilter<"Experience"> | Date | string
-  userId?: Prisma.StringNullableFilter<"Experience"> | string | null
+  userId?: Prisma.StringFilter<"Experience"> | string
 }
 
 export type ExperienceCreateManyUserInput = {
@@ -573,7 +569,7 @@ export type ExperienceSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   createdAt?: boolean
   upadtedAt?: boolean
   userId?: boolean
-  user?: boolean | Prisma.Experience$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["experience"]>
 
 export type ExperienceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -586,7 +582,7 @@ export type ExperienceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   createdAt?: boolean
   upadtedAt?: boolean
   userId?: boolean
-  user?: boolean | Prisma.Experience$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["experience"]>
 
 export type ExperienceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -599,7 +595,7 @@ export type ExperienceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   createdAt?: boolean
   upadtedAt?: boolean
   userId?: boolean
-  user?: boolean | Prisma.Experience$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["experience"]>
 
 export type ExperienceSelectScalar = {
@@ -616,19 +612,19 @@ export type ExperienceSelectScalar = {
 
 export type ExperienceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "post" | "achievements" | "startDate" | "endDate" | "createdAt" | "upadtedAt" | "userId", ExtArgs["result"]["experience"]>
 export type ExperienceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.Experience$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type ExperienceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.Experience$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type ExperienceIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.Experience$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $ExperiencePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Experience"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs> | null
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -639,7 +635,7 @@ export type $ExperiencePayload<ExtArgs extends runtime.Types.Extensions.Internal
     endDate: Date
     createdAt: Date
     upadtedAt: Date
-    userId: string | null
+    userId: string
   }, ExtArgs["result"]["experience"]>
   composites: {}
 }
@@ -1034,7 +1030,7 @@ readonly fields: ExperienceFieldRefs;
  */
 export interface Prisma__ExperienceClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.Experience$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Experience$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1471,25 +1467,6 @@ export type ExperienceDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Limit how many Experiences to delete.
    */
   limit?: number
-}
-
-/**
- * Experience.user
- */
-export type Experience$userArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the User
-   */
-  select?: Prisma.UserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the User
-   */
-  omit?: Prisma.UserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.UserInclude<ExtArgs> | null
-  where?: Prisma.UserWhereInput
 }
 
 /**

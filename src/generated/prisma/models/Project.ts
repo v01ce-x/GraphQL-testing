@@ -30,6 +30,8 @@ export type ProjectMinAggregateOutputType = {
   linkGitHub: string | null
   linkWebSite: string | null
   userId: string | null
+  createdAt: Date | null
+  upadtedAt: Date | null
 }
 
 export type ProjectMaxAggregateOutputType = {
@@ -38,6 +40,8 @@ export type ProjectMaxAggregateOutputType = {
   linkGitHub: string | null
   linkWebSite: string | null
   userId: string | null
+  createdAt: Date | null
+  upadtedAt: Date | null
 }
 
 export type ProjectCountAggregateOutputType = {
@@ -46,6 +50,8 @@ export type ProjectCountAggregateOutputType = {
   linkGitHub: number
   linkWebSite: number
   userId: number
+  createdAt: number
+  upadtedAt: number
   _all: number
 }
 
@@ -56,6 +62,8 @@ export type ProjectMinAggregateInputType = {
   linkGitHub?: true
   linkWebSite?: true
   userId?: true
+  createdAt?: true
+  upadtedAt?: true
 }
 
 export type ProjectMaxAggregateInputType = {
@@ -64,6 +72,8 @@ export type ProjectMaxAggregateInputType = {
   linkGitHub?: true
   linkWebSite?: true
   userId?: true
+  createdAt?: true
+  upadtedAt?: true
 }
 
 export type ProjectCountAggregateInputType = {
@@ -72,6 +82,8 @@ export type ProjectCountAggregateInputType = {
   linkGitHub?: true
   linkWebSite?: true
   userId?: true
+  createdAt?: true
+  upadtedAt?: true
   _all?: true
 }
 
@@ -150,9 +162,11 @@ export type ProjectGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ProjectGroupByOutputType = {
   id: string
   name: string
-  linkGitHub: string
-  linkWebSite: string
-  userId: string | null
+  linkGitHub: string | null
+  linkWebSite: string | null
+  userId: string
+  createdAt: Date
+  upadtedAt: Date
   _count: ProjectCountAggregateOutputType | null
   _min: ProjectMinAggregateOutputType | null
   _max: ProjectMaxAggregateOutputType | null
@@ -179,18 +193,22 @@ export type ProjectWhereInput = {
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   id?: Prisma.StringFilter<"Project"> | string
   name?: Prisma.StringFilter<"Project"> | string
-  linkGitHub?: Prisma.StringFilter<"Project"> | string
-  linkWebSite?: Prisma.StringFilter<"Project"> | string
-  userId?: Prisma.StringNullableFilter<"Project"> | string | null
-  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  linkGitHub?: Prisma.StringNullableFilter<"Project"> | string | null
+  linkWebSite?: Prisma.StringNullableFilter<"Project"> | string | null
+  userId?: Prisma.StringFilter<"Project"> | string
+  createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  upadtedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type ProjectOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  linkGitHub?: Prisma.SortOrder
-  linkWebSite?: Prisma.SortOrder
-  userId?: Prisma.SortOrderInput | Prisma.SortOrder
+  linkGitHub?: Prisma.SortOrderInput | Prisma.SortOrder
+  linkWebSite?: Prisma.SortOrderInput | Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  upadtedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -200,18 +218,22 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ProjectWhereInput[]
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   name?: Prisma.StringFilter<"Project"> | string
-  linkGitHub?: Prisma.StringFilter<"Project"> | string
-  linkWebSite?: Prisma.StringFilter<"Project"> | string
-  userId?: Prisma.StringNullableFilter<"Project"> | string | null
-  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  linkGitHub?: Prisma.StringNullableFilter<"Project"> | string | null
+  linkWebSite?: Prisma.StringNullableFilter<"Project"> | string | null
+  userId?: Prisma.StringFilter<"Project"> | string
+  createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  upadtedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type ProjectOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  linkGitHub?: Prisma.SortOrder
-  linkWebSite?: Prisma.SortOrder
-  userId?: Prisma.SortOrderInput | Prisma.SortOrder
+  linkGitHub?: Prisma.SortOrderInput | Prisma.SortOrder
+  linkWebSite?: Prisma.SortOrderInput | Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  upadtedAt?: Prisma.SortOrder
   _count?: Prisma.ProjectCountOrderByAggregateInput
   _max?: Prisma.ProjectMaxOrderByAggregateInput
   _min?: Prisma.ProjectMinOrderByAggregateInput
@@ -223,64 +245,80 @@ export type ProjectScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ProjectScalarWhereWithAggregatesInput | Prisma.ProjectScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Project"> | string
   name?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  linkGitHub?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  linkWebSite?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  userId?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
+  linkGitHub?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
+  linkWebSite?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
+  userId?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
+  upadtedAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
 }
 
 export type ProjectCreateInput = {
   id?: string
   name: string
-  linkGitHub?: string
-  linkWebSite?: string
-  user?: Prisma.UserCreateNestedOneWithoutProjectInput
+  linkGitHub?: string | null
+  linkWebSite?: string | null
+  createdAt?: Date | string
+  upadtedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateInput = {
   id?: string
   name: string
-  linkGitHub?: string
-  linkWebSite?: string
-  userId?: string | null
+  linkGitHub?: string | null
+  linkWebSite?: string | null
+  userId: string
+  createdAt?: Date | string
+  upadtedAt?: Date | string
 }
 
 export type ProjectUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  linkGitHub?: Prisma.StringFieldUpdateOperationsInput | string
-  linkWebSite?: Prisma.StringFieldUpdateOperationsInput | string
-  user?: Prisma.UserUpdateOneWithoutProjectNestedInput
+  linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  linkGitHub?: Prisma.StringFieldUpdateOperationsInput | string
-  linkWebSite?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectCreateManyInput = {
   id?: string
   name: string
-  linkGitHub?: string
-  linkWebSite?: string
-  userId?: string | null
+  linkGitHub?: string | null
+  linkWebSite?: string | null
+  userId: string
+  createdAt?: Date | string
+  upadtedAt?: Date | string
 }
 
 export type ProjectUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  linkGitHub?: Prisma.StringFieldUpdateOperationsInput | string
-  linkWebSite?: Prisma.StringFieldUpdateOperationsInput | string
+  linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  linkGitHub?: Prisma.StringFieldUpdateOperationsInput | string
-  linkWebSite?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectListRelationFilter = {
@@ -299,6 +337,8 @@ export type ProjectCountOrderByAggregateInput = {
   linkGitHub?: Prisma.SortOrder
   linkWebSite?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  upadtedAt?: Prisma.SortOrder
 }
 
 export type ProjectMaxOrderByAggregateInput = {
@@ -307,6 +347,8 @@ export type ProjectMaxOrderByAggregateInput = {
   linkGitHub?: Prisma.SortOrder
   linkWebSite?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  upadtedAt?: Prisma.SortOrder
 }
 
 export type ProjectMinOrderByAggregateInput = {
@@ -315,6 +357,8 @@ export type ProjectMinOrderByAggregateInput = {
   linkGitHub?: Prisma.SortOrder
   linkWebSite?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  upadtedAt?: Prisma.SortOrder
 }
 
 export type ProjectCreateNestedManyWithoutUserInput = {
@@ -359,18 +403,26 @@ export type ProjectUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.ProjectScalarWhereInput | Prisma.ProjectScalarWhereInput[]
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type ProjectCreateWithoutUserInput = {
   id?: string
   name: string
-  linkGitHub?: string
-  linkWebSite?: string
+  linkGitHub?: string | null
+  linkWebSite?: string | null
+  createdAt?: Date | string
+  upadtedAt?: Date | string
 }
 
 export type ProjectUncheckedCreateWithoutUserInput = {
   id?: string
   name: string
-  linkGitHub?: string
-  linkWebSite?: string
+  linkGitHub?: string | null
+  linkWebSite?: string | null
+  createdAt?: Date | string
+  upadtedAt?: Date | string
 }
 
 export type ProjectCreateOrConnectWithoutUserInput = {
@@ -405,37 +457,47 @@ export type ProjectScalarWhereInput = {
   NOT?: Prisma.ProjectScalarWhereInput | Prisma.ProjectScalarWhereInput[]
   id?: Prisma.StringFilter<"Project"> | string
   name?: Prisma.StringFilter<"Project"> | string
-  linkGitHub?: Prisma.StringFilter<"Project"> | string
-  linkWebSite?: Prisma.StringFilter<"Project"> | string
-  userId?: Prisma.StringNullableFilter<"Project"> | string | null
+  linkGitHub?: Prisma.StringNullableFilter<"Project"> | string | null
+  linkWebSite?: Prisma.StringNullableFilter<"Project"> | string | null
+  userId?: Prisma.StringFilter<"Project"> | string
+  createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  upadtedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
 }
 
 export type ProjectCreateManyUserInput = {
   id?: string
   name: string
-  linkGitHub?: string
-  linkWebSite?: string
+  linkGitHub?: string | null
+  linkWebSite?: string | null
+  createdAt?: Date | string
+  upadtedAt?: Date | string
 }
 
 export type ProjectUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  linkGitHub?: Prisma.StringFieldUpdateOperationsInput | string
-  linkWebSite?: Prisma.StringFieldUpdateOperationsInput | string
+  linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  linkGitHub?: Prisma.StringFieldUpdateOperationsInput | string
-  linkWebSite?: Prisma.StringFieldUpdateOperationsInput | string
+  linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  linkGitHub?: Prisma.StringFieldUpdateOperationsInput | string
-  linkWebSite?: Prisma.StringFieldUpdateOperationsInput | string
+  linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -446,7 +508,9 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   linkGitHub?: boolean
   linkWebSite?: boolean
   userId?: boolean
-  user?: boolean | Prisma.Project$userArgs<ExtArgs>
+  createdAt?: boolean
+  upadtedAt?: boolean
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -455,7 +519,9 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   linkGitHub?: boolean
   linkWebSite?: boolean
   userId?: boolean
-  user?: boolean | Prisma.Project$userArgs<ExtArgs>
+  createdAt?: boolean
+  upadtedAt?: boolean
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -464,7 +530,9 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   linkGitHub?: boolean
   linkWebSite?: boolean
   userId?: boolean
-  user?: boolean | Prisma.Project$userArgs<ExtArgs>
+  createdAt?: boolean
+  upadtedAt?: boolean
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectScalar = {
@@ -473,30 +541,34 @@ export type ProjectSelectScalar = {
   linkGitHub?: boolean
   linkWebSite?: boolean
   userId?: boolean
+  createdAt?: boolean
+  upadtedAt?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "linkGitHub" | "linkWebSite" | "userId", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "linkGitHub" | "linkWebSite" | "userId" | "createdAt" | "upadtedAt", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.Project$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type ProjectIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.Project$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type ProjectIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.Project$userArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Project"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs> | null
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
-    linkGitHub: string
-    linkWebSite: string
-    userId: string | null
+    linkGitHub: string | null
+    linkWebSite: string | null
+    userId: string
+    createdAt: Date
+    upadtedAt: Date
   }, ExtArgs["result"]["project"]>
   composites: {}
 }
@@ -891,7 +963,7 @@ readonly fields: ProjectFieldRefs;
  */
 export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.Project$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -926,6 +998,8 @@ export interface ProjectFieldRefs {
   readonly linkGitHub: Prisma.FieldRef<"Project", 'String'>
   readonly linkWebSite: Prisma.FieldRef<"Project", 'String'>
   readonly userId: Prisma.FieldRef<"Project", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Project", 'DateTime'>
+  readonly upadtedAt: Prisma.FieldRef<"Project", 'DateTime'>
 }
     
 
@@ -1324,25 +1398,6 @@ export type ProjectDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Limit how many Projects to delete.
    */
   limit?: number
-}
-
-/**
- * Project.user
- */
-export type Project$userArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the User
-   */
-  select?: Prisma.UserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the User
-   */
-  omit?: Prisma.UserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.UserInclude<ExtArgs> | null
-  where?: Prisma.UserWhereInput
 }
 
 /**

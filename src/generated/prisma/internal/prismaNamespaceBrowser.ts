@@ -77,8 +77,6 @@ export const UserScalarFieldEnum = {
   name: 'name',
   description: 'description',
   skills: 'skills',
-  experience_id: 'experience_id',
-  project_id: 'project_id',
   createdAt: 'createdAt',
   upadtedAt: 'upadtedAt'
 } as const
@@ -106,7 +104,9 @@ export const ProjectScalarFieldEnum = {
   name: 'name',
   linkGitHub: 'linkGitHub',
   linkWebSite: 'linkWebSite',
-  userId: 'userId'
+  userId: 'userId',
+  createdAt: 'createdAt',
+  upadtedAt: 'upadtedAt'
 } as const
 
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]

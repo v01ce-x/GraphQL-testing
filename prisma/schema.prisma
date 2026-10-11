@@ -15,9 +15,6 @@ model User {
 
   skills String[]
 
-  experience_id String[]
-  project_id    String[]
-
   experience Experience[]
   project    Project[]
 
@@ -39,8 +36,9 @@ model Experience {
 
   createdAt DateTime @default(now()) @map("created_at")
   upadtedAt DateTime @updatedAt() @map("updated_at")
-  user      User?    @relation(fields: [userId], references: [id])
-  userId    String?
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @map("user_id")
 
   @@map("experience")
 }
@@ -49,10 +47,14 @@ model Project {
   id String @id @default(uuid())
 
   name        String
-  linkGitHub  String  @default("null")
-  linkWebSite String  @default("null")
-  user        User?   @relation(fields: [userId], references: [id])
-  userId      String?
+  linkGitHub  String?
+  linkWebSite String?
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @map("user_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  upadtedAt DateTime @updatedAt() @map("updated_at")
 
   @@map("projects")
 }

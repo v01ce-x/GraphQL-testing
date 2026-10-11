@@ -45,8 +45,6 @@ export type UserCountAggregateOutputType = {
   name: number
   description: number
   skills: number
-  experience_id: number
-  project_id: number
   createdAt: number
   upadtedAt: number
   _all: number
@@ -74,8 +72,6 @@ export type UserCountAggregateInputType = {
   name?: true
   description?: true
   skills?: true
-  experience_id?: true
-  project_id?: true
   createdAt?: true
   upadtedAt?: true
   _all?: true
@@ -158,8 +154,6 @@ export type UserGroupByOutputType = {
   name: string
   description: string
   skills: string[]
-  experience_id: string[]
-  project_id: string[]
   createdAt: Date
   upadtedAt: Date
   _count: UserCountAggregateOutputType | null
@@ -190,8 +184,6 @@ export type UserWhereInput = {
   name?: Prisma.StringFilter<"User"> | string
   description?: Prisma.StringFilter<"User"> | string
   skills?: Prisma.StringNullableListFilter<"User">
-  experience_id?: Prisma.StringNullableListFilter<"User">
-  project_id?: Prisma.StringNullableListFilter<"User">
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   upadtedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   experience?: Prisma.ExperienceListRelationFilter
@@ -203,8 +195,6 @@ export type UserOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   skills?: Prisma.SortOrder
-  experience_id?: Prisma.SortOrder
-  project_id?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   upadtedAt?: Prisma.SortOrder
   experience?: Prisma.ExperienceOrderByRelationAggregateInput
@@ -219,8 +209,6 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"User"> | string
   description?: Prisma.StringFilter<"User"> | string
   skills?: Prisma.StringNullableListFilter<"User">
-  experience_id?: Prisma.StringNullableListFilter<"User">
-  project_id?: Prisma.StringNullableListFilter<"User">
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   upadtedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   experience?: Prisma.ExperienceListRelationFilter
@@ -232,8 +220,6 @@ export type UserOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   skills?: Prisma.SortOrder
-  experience_id?: Prisma.SortOrder
-  project_id?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   upadtedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -249,8 +235,6 @@ export type UserScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
   description?: Prisma.StringWithAggregatesFilter<"User"> | string
   skills?: Prisma.StringNullableListFilter<"User">
-  experience_id?: Prisma.StringNullableListFilter<"User">
-  project_id?: Prisma.StringNullableListFilter<"User">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   upadtedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
@@ -260,8 +244,6 @@ export type UserCreateInput = {
   name: string
   description: string
   skills?: Prisma.UserCreateskillsInput | string[]
-  experience_id?: Prisma.UserCreateexperience_idInput | string[]
-  project_id?: Prisma.UserCreateproject_idInput | string[]
   createdAt?: Date | string
   upadtedAt?: Date | string
   experience?: Prisma.ExperienceCreateNestedManyWithoutUserInput
@@ -273,8 +255,6 @@ export type UserUncheckedCreateInput = {
   name: string
   description: string
   skills?: Prisma.UserCreateskillsInput | string[]
-  experience_id?: Prisma.UserCreateexperience_idInput | string[]
-  project_id?: Prisma.UserCreateproject_idInput | string[]
   createdAt?: Date | string
   upadtedAt?: Date | string
   experience?: Prisma.ExperienceUncheckedCreateNestedManyWithoutUserInput
@@ -286,8 +266,6 @@ export type UserUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   skills?: Prisma.UserUpdateskillsInput | string[]
-  experience_id?: Prisma.UserUpdateexperience_idInput | string[]
-  project_id?: Prisma.UserUpdateproject_idInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   experience?: Prisma.ExperienceUpdateManyWithoutUserNestedInput
@@ -299,8 +277,6 @@ export type UserUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   skills?: Prisma.UserUpdateskillsInput | string[]
-  experience_id?: Prisma.UserUpdateexperience_idInput | string[]
-  project_id?: Prisma.UserUpdateproject_idInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   experience?: Prisma.ExperienceUncheckedUpdateManyWithoutUserNestedInput
@@ -312,8 +288,6 @@ export type UserCreateManyInput = {
   name: string
   description: string
   skills?: Prisma.UserCreateskillsInput | string[]
-  experience_id?: Prisma.UserCreateexperience_idInput | string[]
-  project_id?: Prisma.UserCreateproject_idInput | string[]
   createdAt?: Date | string
   upadtedAt?: Date | string
 }
@@ -323,8 +297,6 @@ export type UserUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   skills?: Prisma.UserUpdateskillsInput | string[]
-  experience_id?: Prisma.UserUpdateexperience_idInput | string[]
-  project_id?: Prisma.UserUpdateproject_idInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -334,8 +306,6 @@ export type UserUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   skills?: Prisma.UserUpdateskillsInput | string[]
-  experience_id?: Prisma.UserUpdateexperience_idInput | string[]
-  project_id?: Prisma.UserUpdateproject_idInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -353,8 +323,6 @@ export type UserCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   skills?: Prisma.SortOrder
-  experience_id?: Prisma.SortOrder
-  project_id?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   upadtedAt?: Prisma.SortOrder
 }
@@ -375,20 +343,12 @@ export type UserMinOrderByAggregateInput = {
   upadtedAt?: Prisma.SortOrder
 }
 
-export type UserNullableScalarRelationFilter = {
-  is?: Prisma.UserWhereInput | null
-  isNot?: Prisma.UserWhereInput | null
+export type UserScalarRelationFilter = {
+  is?: Prisma.UserWhereInput
+  isNot?: Prisma.UserWhereInput
 }
 
 export type UserCreateskillsInput = {
-  set: string[]
-}
-
-export type UserCreateexperience_idInput = {
-  set: string[]
-}
-
-export type UserCreateproject_idInput = {
   set: string[]
 }
 
@@ -397,16 +357,6 @@ export type StringFieldUpdateOperationsInput = {
 }
 
 export type UserUpdateskillsInput = {
-  set?: string[]
-  push?: string | string[]
-}
-
-export type UserUpdateexperience_idInput = {
-  set?: string[]
-  push?: string | string[]
-}
-
-export type UserUpdateproject_idInput = {
   set?: string[]
   push?: string | string[]
 }
@@ -421,12 +371,10 @@ export type UserCreateNestedOneWithoutExperienceInput = {
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneWithoutExperienceNestedInput = {
+export type UserUpdateOneRequiredWithoutExperienceNestedInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutExperienceInput, Prisma.UserUncheckedCreateWithoutExperienceInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutExperienceInput
   upsert?: Prisma.UserUpsertWithoutExperienceInput
-  disconnect?: Prisma.UserWhereInput | boolean
-  delete?: Prisma.UserWhereInput | boolean
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutExperienceInput, Prisma.UserUpdateWithoutExperienceInput>, Prisma.UserUncheckedUpdateWithoutExperienceInput>
 }
@@ -437,12 +385,10 @@ export type UserCreateNestedOneWithoutProjectInput = {
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneWithoutProjectNestedInput = {
+export type UserUpdateOneRequiredWithoutProjectNestedInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutProjectInput, Prisma.UserUncheckedCreateWithoutProjectInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutProjectInput
   upsert?: Prisma.UserUpsertWithoutProjectInput
-  disconnect?: Prisma.UserWhereInput | boolean
-  delete?: Prisma.UserWhereInput | boolean
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutProjectInput, Prisma.UserUpdateWithoutProjectInput>, Prisma.UserUncheckedUpdateWithoutProjectInput>
 }
@@ -452,8 +398,6 @@ export type UserCreateWithoutExperienceInput = {
   name: string
   description: string
   skills?: Prisma.UserCreateskillsInput | string[]
-  experience_id?: Prisma.UserCreateexperience_idInput | string[]
-  project_id?: Prisma.UserCreateproject_idInput | string[]
   createdAt?: Date | string
   upadtedAt?: Date | string
   project?: Prisma.ProjectCreateNestedManyWithoutUserInput
@@ -464,8 +408,6 @@ export type UserUncheckedCreateWithoutExperienceInput = {
   name: string
   description: string
   skills?: Prisma.UserCreateskillsInput | string[]
-  experience_id?: Prisma.UserCreateexperience_idInput | string[]
-  project_id?: Prisma.UserCreateproject_idInput | string[]
   createdAt?: Date | string
   upadtedAt?: Date | string
   project?: Prisma.ProjectUncheckedCreateNestedManyWithoutUserInput
@@ -492,8 +434,6 @@ export type UserUpdateWithoutExperienceInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   skills?: Prisma.UserUpdateskillsInput | string[]
-  experience_id?: Prisma.UserUpdateexperience_idInput | string[]
-  project_id?: Prisma.UserUpdateproject_idInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   project?: Prisma.ProjectUpdateManyWithoutUserNestedInput
@@ -504,8 +444,6 @@ export type UserUncheckedUpdateWithoutExperienceInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   skills?: Prisma.UserUpdateskillsInput | string[]
-  experience_id?: Prisma.UserUpdateexperience_idInput | string[]
-  project_id?: Prisma.UserUpdateproject_idInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   project?: Prisma.ProjectUncheckedUpdateManyWithoutUserNestedInput
@@ -516,8 +454,6 @@ export type UserCreateWithoutProjectInput = {
   name: string
   description: string
   skills?: Prisma.UserCreateskillsInput | string[]
-  experience_id?: Prisma.UserCreateexperience_idInput | string[]
-  project_id?: Prisma.UserCreateproject_idInput | string[]
   createdAt?: Date | string
   upadtedAt?: Date | string
   experience?: Prisma.ExperienceCreateNestedManyWithoutUserInput
@@ -528,8 +464,6 @@ export type UserUncheckedCreateWithoutProjectInput = {
   name: string
   description: string
   skills?: Prisma.UserCreateskillsInput | string[]
-  experience_id?: Prisma.UserCreateexperience_idInput | string[]
-  project_id?: Prisma.UserCreateproject_idInput | string[]
   createdAt?: Date | string
   upadtedAt?: Date | string
   experience?: Prisma.ExperienceUncheckedCreateNestedManyWithoutUserInput
@@ -556,8 +490,6 @@ export type UserUpdateWithoutProjectInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   skills?: Prisma.UserUpdateskillsInput | string[]
-  experience_id?: Prisma.UserUpdateexperience_idInput | string[]
-  project_id?: Prisma.UserUpdateproject_idInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   experience?: Prisma.ExperienceUpdateManyWithoutUserNestedInput
@@ -568,8 +500,6 @@ export type UserUncheckedUpdateWithoutProjectInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   skills?: Prisma.UserUpdateskillsInput | string[]
-  experience_id?: Prisma.UserUpdateexperience_idInput | string[]
-  project_id?: Prisma.UserUpdateproject_idInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   experience?: Prisma.ExperienceUncheckedUpdateManyWithoutUserNestedInput
@@ -620,8 +550,6 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   name?: boolean
   description?: boolean
   skills?: boolean
-  experience_id?: boolean
-  project_id?: boolean
   createdAt?: boolean
   upadtedAt?: boolean
   experience?: boolean | Prisma.User$experienceArgs<ExtArgs>
@@ -634,8 +562,6 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   name?: boolean
   description?: boolean
   skills?: boolean
-  experience_id?: boolean
-  project_id?: boolean
   createdAt?: boolean
   upadtedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -645,8 +571,6 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   name?: boolean
   description?: boolean
   skills?: boolean
-  experience_id?: boolean
-  project_id?: boolean
   createdAt?: boolean
   upadtedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -656,13 +580,11 @@ export type UserSelectScalar = {
   name?: boolean
   description?: boolean
   skills?: boolean
-  experience_id?: boolean
-  project_id?: boolean
   createdAt?: boolean
   upadtedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "skills" | "experience_id" | "project_id" | "createdAt" | "upadtedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "skills" | "createdAt" | "upadtedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   experience?: boolean | Prisma.User$experienceArgs<ExtArgs>
   project?: boolean | Prisma.User$projectArgs<ExtArgs>
@@ -682,8 +604,6 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     name: string
     description: string
     skills: string[]
-    experience_id: string[]
-    project_id: string[]
     createdAt: Date
     upadtedAt: Date
   }, ExtArgs["result"]["user"]>
@@ -1115,8 +1035,6 @@ export interface UserFieldRefs {
   readonly name: Prisma.FieldRef<"User", 'String'>
   readonly description: Prisma.FieldRef<"User", 'String'>
   readonly skills: Prisma.FieldRef<"User", 'String[]'>
-  readonly experience_id: Prisma.FieldRef<"User", 'String[]'>
-  readonly project_id: Prisma.FieldRef<"User", 'String[]'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly upadtedAt: Prisma.FieldRef<"User", 'DateTime'>
 }

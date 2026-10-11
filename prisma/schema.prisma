@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id String @id @default(uuid())
+
+  name        String
+  description String
+
+  skills String[]
+
+  experience_id String[]
+  project_id    String[]
+
+  experience Experience[]
+  project    Project[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  upadtedAt DateTime @updatedAt() @map("updated_at")
+
+  @@map("users")
+}
+
+model Experience {
+  id String @id @default(uuid())
+
+  name         String
+  post         String[]
+  achievements String
+
+  startDate DateTime @map("start_date")
+  endDate   DateTime @map("end_date")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  upadtedAt DateTime @updatedAt() @map("updated_at")
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+
+  @@map("experience")
+}
+
+model Project {
+  id String @id @default(uuid())
+
+  name        String
+  linkGitHub  String  @default("null")
+  linkWebSite String  @default("null")
+  user        User?   @relation(fields: [userId], references: [id])
+  userId      String?
+
+  @@map("projects")
+}

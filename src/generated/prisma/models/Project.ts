@@ -31,7 +31,7 @@ export type ProjectMinAggregateOutputType = {
   linkWebSite: string | null
   userId: string | null
   createdAt: Date | null
-  upadtedAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ProjectMaxAggregateOutputType = {
@@ -41,7 +41,7 @@ export type ProjectMaxAggregateOutputType = {
   linkWebSite: string | null
   userId: string | null
   createdAt: Date | null
-  upadtedAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ProjectCountAggregateOutputType = {
@@ -51,7 +51,7 @@ export type ProjectCountAggregateOutputType = {
   linkWebSite: number
   userId: number
   createdAt: number
-  upadtedAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -63,7 +63,7 @@ export type ProjectMinAggregateInputType = {
   linkWebSite?: true
   userId?: true
   createdAt?: true
-  upadtedAt?: true
+  updatedAt?: true
 }
 
 export type ProjectMaxAggregateInputType = {
@@ -73,7 +73,7 @@ export type ProjectMaxAggregateInputType = {
   linkWebSite?: true
   userId?: true
   createdAt?: true
-  upadtedAt?: true
+  updatedAt?: true
 }
 
 export type ProjectCountAggregateInputType = {
@@ -83,7 +83,7 @@ export type ProjectCountAggregateInputType = {
   linkWebSite?: true
   userId?: true
   createdAt?: true
-  upadtedAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -166,7 +166,7 @@ export type ProjectGroupByOutputType = {
   linkWebSite: string | null
   userId: string
   createdAt: Date
-  upadtedAt: Date
+  updatedAt: Date
   _count: ProjectCountAggregateOutputType | null
   _min: ProjectMinAggregateOutputType | null
   _max: ProjectMaxAggregateOutputType | null
@@ -197,7 +197,7 @@ export type ProjectWhereInput = {
   linkWebSite?: Prisma.StringNullableFilter<"Project"> | string | null
   userId?: Prisma.StringFilter<"Project"> | string
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
-  upadtedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
@@ -208,7 +208,7 @@ export type ProjectOrderByWithRelationInput = {
   linkWebSite?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  upadtedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -222,7 +222,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   linkWebSite?: Prisma.StringNullableFilter<"Project"> | string | null
   userId?: Prisma.StringFilter<"Project"> | string
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
-  upadtedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
@@ -233,7 +233,7 @@ export type ProjectOrderByWithAggregationInput = {
   linkWebSite?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  upadtedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProjectCountOrderByAggregateInput
   _max?: Prisma.ProjectMaxOrderByAggregateInput
   _min?: Prisma.ProjectMinOrderByAggregateInput
@@ -249,7 +249,7 @@ export type ProjectScalarWhereWithAggregatesInput = {
   linkWebSite?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   userId?: Prisma.StringWithAggregatesFilter<"Project"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
-  upadtedAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
 }
 
 export type ProjectCreateInput = {
@@ -258,7 +258,7 @@ export type ProjectCreateInput = {
   linkGitHub?: string | null
   linkWebSite?: string | null
   createdAt?: Date | string
-  upadtedAt?: Date | string
+  updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutProjectInput
 }
 
@@ -269,7 +269,7 @@ export type ProjectUncheckedCreateInput = {
   linkWebSite?: string | null
   userId: string
   createdAt?: Date | string
-  upadtedAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProjectUpdateInput = {
@@ -278,7 +278,7 @@ export type ProjectUpdateInput = {
   linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutProjectNestedInput
 }
 
@@ -289,7 +289,7 @@ export type ProjectUncheckedUpdateInput = {
   linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectCreateManyInput = {
@@ -299,7 +299,7 @@ export type ProjectCreateManyInput = {
   linkWebSite?: string | null
   userId: string
   createdAt?: Date | string
-  upadtedAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProjectUpdateManyMutationInput = {
@@ -308,7 +308,7 @@ export type ProjectUpdateManyMutationInput = {
   linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectUncheckedUpdateManyInput = {
@@ -318,7 +318,7 @@ export type ProjectUncheckedUpdateManyInput = {
   linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectListRelationFilter = {
@@ -338,7 +338,7 @@ export type ProjectCountOrderByAggregateInput = {
   linkWebSite?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  upadtedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ProjectMaxOrderByAggregateInput = {
@@ -348,7 +348,7 @@ export type ProjectMaxOrderByAggregateInput = {
   linkWebSite?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  upadtedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ProjectMinOrderByAggregateInput = {
@@ -358,7 +358,7 @@ export type ProjectMinOrderByAggregateInput = {
   linkWebSite?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  upadtedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ProjectCreateNestedManyWithoutUserInput = {
@@ -413,7 +413,7 @@ export type ProjectCreateWithoutUserInput = {
   linkGitHub?: string | null
   linkWebSite?: string | null
   createdAt?: Date | string
-  upadtedAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProjectUncheckedCreateWithoutUserInput = {
@@ -422,7 +422,7 @@ export type ProjectUncheckedCreateWithoutUserInput = {
   linkGitHub?: string | null
   linkWebSite?: string | null
   createdAt?: Date | string
-  upadtedAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProjectCreateOrConnectWithoutUserInput = {
@@ -461,7 +461,7 @@ export type ProjectScalarWhereInput = {
   linkWebSite?: Prisma.StringNullableFilter<"Project"> | string | null
   userId?: Prisma.StringFilter<"Project"> | string
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
-  upadtedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
 }
 
 export type ProjectCreateManyUserInput = {
@@ -470,7 +470,7 @@ export type ProjectCreateManyUserInput = {
   linkGitHub?: string | null
   linkWebSite?: string | null
   createdAt?: Date | string
-  upadtedAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ProjectUpdateWithoutUserInput = {
@@ -479,7 +479,7 @@ export type ProjectUpdateWithoutUserInput = {
   linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectUncheckedUpdateWithoutUserInput = {
@@ -488,7 +488,7 @@ export type ProjectUncheckedUpdateWithoutUserInput = {
   linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProjectUncheckedUpdateManyWithoutUserInput = {
@@ -497,7 +497,7 @@ export type ProjectUncheckedUpdateManyWithoutUserInput = {
   linkGitHub?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   linkWebSite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  upadtedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -509,7 +509,7 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   linkWebSite?: boolean
   userId?: boolean
   createdAt?: boolean
-  upadtedAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
@@ -520,7 +520,7 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   linkWebSite?: boolean
   userId?: boolean
   createdAt?: boolean
-  upadtedAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
@@ -531,7 +531,7 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   linkWebSite?: boolean
   userId?: boolean
   createdAt?: boolean
-  upadtedAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
@@ -542,10 +542,10 @@ export type ProjectSelectScalar = {
   linkWebSite?: boolean
   userId?: boolean
   createdAt?: boolean
-  upadtedAt?: boolean
+  updatedAt?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "linkGitHub" | "linkWebSite" | "userId" | "createdAt" | "upadtedAt", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "linkGitHub" | "linkWebSite" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -568,7 +568,7 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     linkWebSite: string | null
     userId: string
     createdAt: Date
-    upadtedAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["project"]>
   composites: {}
 }
@@ -999,7 +999,7 @@ export interface ProjectFieldRefs {
   readonly linkWebSite: Prisma.FieldRef<"Project", 'String'>
   readonly userId: Prisma.FieldRef<"Project", 'String'>
   readonly createdAt: Prisma.FieldRef<"Project", 'DateTime'>
-  readonly upadtedAt: Prisma.FieldRef<"Project", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Project", 'DateTime'>
 }
     
 

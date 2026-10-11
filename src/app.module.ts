@@ -8,9 +8,12 @@ import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
-    GraphQLModule.forRoot({
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    GraphQLModule.forRootAsync({
       driver: ApolloDriver,
-      useFactory: getGraphQLConfig(),
+      useFactory: getGraphQLConfig,
       imports: [ConfigModule],
       inject: [ConfigService],
     }),

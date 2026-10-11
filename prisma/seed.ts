@@ -8,10 +8,12 @@ const adapter = new PrismaPg({
 const prisma = new PrismaClient({ adapter });
 
 const main = async () => {
-  const user = await prisma.user.create({
+  await prisma.user.create({
     data: {
       name: 'Даниил',
-      description: 'backend-developer',
+      description:
+        'Backend-разработчик, специализирующийся на NestJS и TypeScript. Разрабатываю REST API и GraphQL API, работаю с PostgreSQL и Prisma ORM.' +
+        'Использую Docker для организации окружения и WebSockets для реализации взаимодействия в реальном времени. Стремлюсь писать чистый, поддерживаемый и масштабируемый код.',
       skills: [
         'NestJs',
         'docker',
@@ -27,7 +29,7 @@ const main = async () => {
             name: 'ООО ПРДБ (Программное решение для бизнеса)',
             post: ['backend developer', 'frontend developer'],
             achievements:
-              'Разрабатывал REST API и GraphQL API, интегрировал API с клиенской частью',
+              'Разработал REST API и GraphQL API, интегрировал API с клиенской частью',
             startDate: new Date('2025-05-09'),
             endDate: new Date('2026-03-10'),
           },
@@ -56,8 +58,6 @@ const main = async () => {
       },
     },
   });
-
-  console.log('Created user:', user.name);
 };
 
 main()

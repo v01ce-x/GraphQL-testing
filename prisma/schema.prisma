@@ -19,7 +19,7 @@ model User {
   project    Project[]
 
   createdAt DateTime @default(now()) @map("created_at")
-  upadtedAt DateTime @updatedAt() @map("updated_at")
+  updatedAt DateTime @updatedAt() @map("updated_at")
 
   @@map("users")
 }
@@ -35,7 +35,7 @@ model Experience {
   endDate   DateTime @map("end_date")
 
   createdAt DateTime @default(now()) @map("created_at")
-  upadtedAt DateTime @updatedAt() @map("updated_at")
+  updatedAt DateTime @updatedAt() @map("updated_at")
 
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String @map("user_id")
@@ -54,7 +54,7 @@ model Project {
   userId String @map("user_id")
 
   createdAt DateTime @default(now()) @map("created_at")
-  upadtedAt DateTime @updatedAt() @map("updated_at")
+  updatedAt DateTime @updatedAt() @map("updated_at")
 
   @@map("projects")
 }

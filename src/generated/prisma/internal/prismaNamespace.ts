@@ -686,7 +686,7 @@ export const UserScalarFieldEnum = {
   description: 'description',
   skills: 'skills',
   createdAt: 'createdAt',
-  upadtedAt: 'upadtedAt'
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -700,7 +700,7 @@ export const ExperienceScalarFieldEnum = {
   startDate: 'startDate',
   endDate: 'endDate',
   createdAt: 'createdAt',
-  upadtedAt: 'upadtedAt',
+  updatedAt: 'updatedAt',
   userId: 'userId'
 } as const
 
@@ -714,7 +714,7 @@ export const ProjectScalarFieldEnum = {
   linkWebSite: 'linkWebSite',
   userId: 'userId',
   createdAt: 'createdAt',
-  upadtedAt: 'upadtedAt'
+  updatedAt: 'updatedAt'
 } as const
 
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]

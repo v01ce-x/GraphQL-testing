@@ -16,12 +16,14 @@ const main = async () => {
         'Использую Docker для организации окружения и WebSockets для реализации взаимодействия в реальном времени. Стремлюсь писать чистый, поддерживаемый и масштабируемый код.',
       skills: [
         'NestJs',
-        'docker',
+        'Docker',
         'TypeScript',
         'PostgreSQL',
         'Prisma',
         'GraphQL',
+        'REST API',
       ],
+      links: ['https://github.com/v01ce-x'],
 
       experience: {
         create: [

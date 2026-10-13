@@ -26,8 +26,6 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: development
-      PORT: ${BACKEND_PORT}
-      DATABASE_URL: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public"
     ports:
       - "3000:3000"
     volumes:

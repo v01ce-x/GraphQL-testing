@@ -14,11 +14,7 @@ Backend-проект на NestJS с использованием GraphQL, Apollo
 
 ## Установка и запуск
 
-### 1. Установка зависимостей
-
-    yarn install
-
-### 2. Настройка окружения
+### 1. Настройка окружения
 
 Создай файл `.env` в корне проекта и поместите в него содержимое `.env.example`:
 
@@ -32,23 +28,18 @@ Backend-проект на NestJS с использованием GraphQL, Apollo
     
     BACKEND_PORT=3000
 
-### 3. Запуск PostgreSQL и NESTJS
+### 2. Запуск PostgreSQL и NESTJS
 
     docker compose up -d --build
 
-Проверить состояние контейнера:
+### 3. Запушить схему БД и заполнить тестовыми данными
 
-    docker compose ps
-
-### 4. Заполнение базы тестовыми данными
-
-Запусти сидер:
-
-    yarn prisma db seed
+    docker compose exec nestjs npx prisma db push
+    docker compose exec nestjs npx prisma db seed
 
 Seed-скрипт находится в `prisma/seed.ts`. Команда использует настройку `seed` из `prisma.config.ts`.
 
-### 5. Проверка на работоспособность
+### 4. Проверка на работоспособность
 
 GraphQL endpoint по умолчанию:
 

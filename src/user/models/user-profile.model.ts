@@ -1,7 +1,7 @@
 import { Experience, User } from '../../generated/prisma/client';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { ExperienceModel } from './experience.model';
-import { ProjectModel } from './project.model';
+import { ExperienceModel } from '../../experience/models/experience.model';
+import { ProjectModel } from '../../project/models/project.model';
 
 @ObjectType({
   description: 'Модель профиля пользователя',
@@ -38,7 +38,7 @@ export class UserProfileModel implements User {
   experience: Experience[];
 
   @Field(() => [ProjectModel], {
-    description: 'Прокеты пользователя',
+    description: 'Проекты пользователя',
   })
   project: ProjectModel[];
 

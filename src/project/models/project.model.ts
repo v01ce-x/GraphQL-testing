@@ -6,7 +6,7 @@ import { Project } from '../../generated/prisma/client';
 })
 export class ProjectModel implements Project {
   @Field(() => ID, {
-    description: 'ID пользователя',
+    description: 'ID прокета',
   })
   id: string;
 
